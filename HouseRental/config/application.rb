@@ -10,5 +10,6 @@ module DevExam
       g.scaffold_controller false
       g.assets false
       g.helper false
+    end
   end
 end
