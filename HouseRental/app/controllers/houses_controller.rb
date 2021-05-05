@@ -7,8 +7,8 @@ class HousesController < ApplicationController
     @house.stations.build
   end
   def create
+    @house = House.new(house_params)
     if @house.save
-      @house = House.create(house_params)
       redirect_to houses_path, notice: "Created"
     else
       render :new

@@ -24,26 +24,28 @@
     <%= f.text_area :note %><br>
     <hr>
   <h3> Name of railway line1 </h3>
-    <%= f.label :line_name, "Name of railway line" %><br>
-    <%= f.text_field :line_name %><br>
-    <%= f.label :station_name, "Station name" %><br>
-    <%= f.text_field :station_name %><br>
-    <%= f.label :walking_time, "How many minutes walk" %><br>
-    <%= f.text_field :walking_time %>min/mins<br>
+    <%= f.fields_for :stations do |sta| %>
+    <%= sta.label :line_name, "Name of railway line" %><br>
+    <%= sta.text_field :line_name %><br>
+    <%= sta.label :station_name, "Station name" %><br>
+    <%= sta.text_field :station_name %><br>
+    <%= sta.label :walking_time, "How many minutes walk" %><br>
+    <%= sta.text_field :walking_time %>min/mins<br>
   <h3> Name of railway line2 </h3>
-    <%= f.label :line_name2, "Name of railway line" %><br>
-    <%= f.text_field :line_name2 %><br>
-    <%= f.label :station_name2, "Station name" %><br>
-    <%= f.text_field :station_name2 %><br>
-    <%= f.label :walking_time2, "How many minutes walk" %><br>
-    <%= f.text_field :walking_time2 %>min/mins<br>
+    <%= sta.label :line_name2, "Name of railway line" %><br>
+    <%= sta.text_field :line_name2 %><br>
+    <%= sta.label :station_name2, "Station name" %><br>
+    <%= sta.text_field :station_name2 %><br>
+    <%= sta.label :walking_time2, "How many minutes walk" %><br>
+    <%= sta.text_field :walking_time2 %>min/mins<br>
   <h3> Name of railway line3 </h3>
-    <%= f.label :line_name3, "Name of railway line" %><br>
-    <%= f.text_field :line_name3 %><br>
-    <%= f.label :station_name3, "Station name" %><br>
-    <%= f.text_field :station_name3 %><br>
-    <%= f.label :walking_time3, "How many minutes walk" %><br>
-    <%= f.text_field :walking_time3 %>min/mins<br>
-    <%= f.submit "Register"%>
+    <%= sta.label :line_name3, "Name of railway line" %><br>
+    <%= sta.text_field :line_name3 %><br>
+    <%= sta.label :station_name3, "Station name" %><br>
+    <%= sta.text_field :station_name3 %><br>
+    <%= sta.label :walking_time3, "How many minutes walk" %><br>
+    <%= sta.text_field :walking_time3 %>min/mins<br>
+    <%= sta.submit "Register"%>
     <% end %>
+  <% end %>
 </div>
