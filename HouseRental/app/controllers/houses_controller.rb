@@ -14,6 +14,10 @@ class HousesController < ApplicationController
       render :new
     end
   end
+  def show
+    @house = House.find(params[:id])
+    @station = @house.stations.build
+  end
   private
   def house_params
     params.require(:house).permit(:house_name, :fee, :address, :built_year, :note,
