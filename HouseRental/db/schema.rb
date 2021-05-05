@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_133610) do
+ActiveRecord::Schema.define(version: 2021_05_05_135026) do
 
   create_table "houses", force: :cascade do |t|
     t.string "house_name"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2021_05_05_133610) do
     t.string "line_name3"
     t.string "station_name3"
     t.string "walking_time3"
+    t.integer "house_id"
+    t.index ["house_id"], name: "index_stations_on_house_id"
   end
 
 end
