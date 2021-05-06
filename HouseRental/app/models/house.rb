@@ -5,5 +5,5 @@ class House < ApplicationRecord
   validates :address, presence: true
   validates :built_year, presence: true
   validates :note, presence: true
-  accepts_nested_attributes_for :stations, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :stations, allow_destroy: true, reject_if: :all_blank, update_only: true
 end

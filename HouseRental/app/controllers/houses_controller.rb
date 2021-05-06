@@ -1,4 +1,5 @@
 class HousesController < ApplicationController
+  before_action :set_house, only: [:edit, :show, :destroy, :update]
   def index
     @houses = House.all
   end
@@ -15,18 +16,23 @@ class HousesController < ApplicationController
     end
   end
   def show
-    @house = House.find(params[:id])
-    @house.stations.build
     @station = Station.find_by(house_id: params[:id])
   end
   def edit
-    @house = House.find(params[:id])
-    @house.stations.build
-    @station = Station.find_by(house_id: params[:id])
+  end
+  def update
+    if @house.update_attributes(house_params)
+      redirect_to houses_path
+    else
+      render :new
+    end
   end
   private
+  def set_house
+    @house = House.find(params[:id])
+  end
   def house_params
     params.require(:house).permit(:house_name, :fee, :address, :built_year, :note,
-      stations_attributes: [:line_name, :station_name, :walking_time, :line_name2, :station_name2, :walking_time2, :line_name3, :station_name3, :walking_time3])
+      stations_attributes: %i[line_name station_name walking_time line_name2 station_name2 walking_time2 line_name3 station_name3 walking_time3])
   end
 end
