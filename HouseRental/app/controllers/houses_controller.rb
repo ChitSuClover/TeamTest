@@ -16,7 +16,8 @@ class HousesController < ApplicationController
   end
   def show
     @house = House.find(params[:id])
-    @station = @house.stations.build
+    @house.stations.build
+    @station = Station.find_by(house_id: params[:id])
   end
   private
   def house_params

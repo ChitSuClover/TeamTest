@@ -4,5 +4,7 @@
     <%= house.fee%>
     <%= house.address%>
     <%= house.built_year%>
-    <%= house.note%><br>
+    <%= house.note%>
+    <%= link_to 'Show', house_path(house.id) %>
+    <br>
   <% end %>
