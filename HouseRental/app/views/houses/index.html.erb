@@ -6,5 +6,7 @@
     <%= house.built_year%>
     <%= house.note%>
     <%= link_to 'Show', house_path(house.id) %>
+    <%= link_to 'Edit', edit_house_path(house.id), data: {confirm: "Confirm Edit!"} %>
+    <%= link_to 'Delete', house_path(house.id), method: :delete, data: {confirm: "Confirm Delete!"} %>
     <br>
   <% end %>

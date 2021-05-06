@@ -19,6 +19,11 @@ class HousesController < ApplicationController
     @house.stations.build
     @station = Station.find_by(house_id: params[:id])
   end
+  def edit
+    @house = House.find(params[:id])
+    @house.stations.build
+    @station = Station.find_by(house_id: params[:id])
+  end
   private
   def house_params
     params.require(:house).permit(:house_name, :fee, :address, :built_year, :note,
