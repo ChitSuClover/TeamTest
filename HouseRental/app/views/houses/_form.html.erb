@@ -1,0 +1,50 @@
+<% if @house.errors.any? %>
+  <div id="error_explanation">
+    <h3 align="center"><%= pluralize(@house.errors.count, "error")%></h3>
+    <ul>
+      <% @house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+  </div>
+<div>
+  <h3> Register Property </h3>
+  <%= form_with(model: @house, local: true, url: choose_new_or_edit) do |f| %>
+    <%= f.label :house_name, "Property" %><br>
+    <%= f.text_field :house_name %><br>
+    <%= f.label :fee, "Rent" %><br>
+    <%= f.text_field :fee %>RWF<br>
+    <%= f.label :built_year, "Building age" %><br>
+    <%= f.text_field :built_year %>year/years old<br>
+    <%= f.label :address, "Address" %><br>
+    <%= f.text_area :address %><br>
+    <%= f.label :note, "Remark" %><br>
+    <%= f.text_area :note %><br>
+    <hr>
+  <h3> Name of railway line1 </h3>
+    <%= f.fields_for :stations do |sta| %>
+    <%= sta.label :line_name, "Name of railway line" %><br>
+    <%= sta.text_field :line_name %><br>
+    <%= sta.label :station_name, "Station name" %><br>
+    <%= sta.text_field :station_name %><br>
+    <%= sta.label :walking_time, "How many minutes walk" %><br>
+    <%= sta.text_field :walking_time %>min/mins<br>
+  <h3> Name of railway line2 </h3>
+    <%= sta.label :line_name2, "Name of railway line" %><br>
+    <%= sta.text_field :line_name2 %><br>
+    <%= sta.label :station_name2, "Station name" %><br>
+    <%= sta.text_field :station_name2 %><br>
+    <%= sta.label :walking_time2, "How many minutes walk" %><br>
+    <%= sta.text_field :walking_time2 %>min/mins<br>
+  <h3> Name of railway line3 </h3>
+    <%= sta.label :line_name3, "Name of railway line" %><br>
+    <%= sta.text_field :line_name3 %><br>
+    <%= sta.label :station_name3, "Station name" %><br>
+    <%= sta.text_field :station_name3 %><br>
+    <%= sta.label :walking_time3, "How many minutes walk" %><br>
+    <%= sta.text_field :walking_time3 %>min/mins<br>
+    <%= sta.submit "Register"%>
+    <% end %>
+  <% end %>
+</div>
