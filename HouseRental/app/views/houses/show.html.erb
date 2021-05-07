@@ -11,28 +11,16 @@
   <%= @house.note%></p>
 <hr>
 
-<% unless @station == nil %>
-<h3>Nearest station1</h3>
-<p><strong>Name of railway</strong>
-  <%= @station.line_name %></p>
-<p><strong>Station name</strong>
-  <%= @station.station_name %></p>
-<p><strong>How many minutes walk</strong>
-  <%= @station.walking_time %></p>
-<h3>Nearest station2</h3>
-<p><strong>Name of railway</strong>
-  <%= @station.line_name2 %></p>
-<p><strong>Station name</strong>
-  <%= @station.station_name2 %></p>
-<p><strong>How many minutes walk</strong>
-  <%= @station.walking_time2 %></p>
-<h3>Nearest station3</h3>
-<p><strong>Name of railway</strong>
-  <%= @station.line_name3 %></p>
-<p><strong>Station name</strong>
-  <%= @station.station_name3 %></p>
-<p><strong>How many minutes walk</strong>
-  <%= @station.walking_time3 %></p>
+<% i=1 %>
+<% @station.each do |s| %>
+<h3>Nearest station<%= i %></h3>
+  <p><strong>Name of railway: </strong>
+    <%= s.line_name %></p>
+  <p><strong>Station name: </strong>
+    <%= s.station_name %></p>
+  <p><strong>How many minutes walk: </strong>
+    <%= s.walking_time %></p>
+    <% i +=1 %>
 <% end %>
 <%= link_to 'Edit', edit_house_path(@house.id), data: {confirm: "Confirm Edit!"} %>
 <%= link_to 'Back', houses_path %>

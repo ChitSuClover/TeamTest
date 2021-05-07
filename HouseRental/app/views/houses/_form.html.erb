@@ -21,8 +21,8 @@
     <%= f.label :note, "Remark" %><br>
     <%= f.text_area :note %><br>
     <hr>
-  <h3> Name of railway line1 </h3>
     <%= f.fields_for :stations do |sta| %>
+    <h3> Name of railway line </h3>
     <%= sta.hidden_field :id %>
     <%= sta.label :line_name, "Name of railway line" %><br>
     <%= sta.text_field :line_name %><br>
@@ -30,22 +30,9 @@
     <%= sta.text_field :station_name %><br>
     <%= sta.label :walking_time, "How many minutes walk" %><br>
     <%= sta.text_field :walking_time %>min/mins<br>
-  <h3> Name of railway line2 </h3>
-    <%= sta.label :line_name2, "Name of railway line" %><br>
-    <%= sta.text_field :line_name2 %><br>
-    <%= sta.label :station_name2, "Station name" %><br>
-    <%= sta.text_field :station_name2 %><br>
-    <%= sta.label :walking_time2, "How many minutes walk" %><br>
-    <%= sta.text_field :walking_time2 %>min/mins<br>
-  <h3> Name of railway line3 </h3>
-    <%= sta.label :line_name3, "Name of railway line" %><br>
-    <%= sta.text_field :line_name3 %><br>
-    <%= sta.label :station_name3, "Station name" %><br>
-    <%= sta.text_field :station_name3 %><br>
-    <%= sta.label :walking_time3, "How many minutes walk" %><br>
-    <%= sta.text_field :walking_time3 %>min/mins<br>
-    <%= sta.submit%><br>
+    <%= sta.hidden_field :_destroy %><br>
     <% end %>
+    <%= f.submit%><br>
       <% if @house.id == nil %>
         <%= link_to 'Back', houses_path %>
       <% else %>
