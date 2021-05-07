@@ -21,8 +21,9 @@
     <%= f.label :note, "Remark" %><br>
     <%= f.text_area :note %><br>
     <hr>
+    <% i=1 %>
     <%= f.fields_for :stations do |sta| %>
-    <h3> Name of railway line </h3>
+    <h3> Name of railway line<%= i %> </h3>
     <%= sta.hidden_field :id %>
     <%= sta.label :line_name, "Name of railway line" %><br>
     <%= sta.text_field :line_name %><br>
@@ -31,6 +32,7 @@
     <%= sta.label :walking_time, "How many minutes walk" %><br>
     <%= sta.text_field :walking_time %>min/mins<br>
     <%= sta.hidden_field :_destroy %><br>
+    <% i +=1 %>
     <% end %>
     <%= f.submit%><br>
       <% if @house.id == nil %>
