@@ -1,15 +1,38 @@
 <h1>Propery Detail</h1>
-<%= @house.house_name%><br>
-<%= @house.fee%><br>
-<%= @house.address%><br>
-<%= @house.built_year%><br>
-<%= @house.note%><br>
-<%= @station.station_name %><br>
-<%= @station.line_name %><br>
-<%= @station.walking_time %><br>
-<%= @station.station_name2 %><br>
-<%= @station.line_name2 %><br>
-<%= @station.walking_time2 %><br>
-<%= @station.station_name3 %><br>
-<%= @station.line_name3 %><br>
-<%= @station.walking_time3 %><br>
+<p><strong>Property:</strong>
+  <%= @house.house_name%></p>
+<p><strong>Rent:</strong>
+  <%= @house.fee%></p>
+<p><strong>Address:</strong>
+  <%= @house.address%></p>
+<p><strong>Building age</strong>
+  <%= @house.built_year%></p>
+<p><strong>Remarks</strong>
+  <%= @house.note%></p>
+<hr>
+
+<% unless @station == nil %>
+<h3>Nearest station1</h3>
+<p><strong>Name of railway</strong>
+  <%= @station.line_name %></p>
+<p><strong>Station name</strong>
+  <%= @station.station_name %></p>
+<p><strong>How many minutes walk</strong>
+  <%= @station.walking_time %></p>
+<h3>Nearest station2</h3>
+<p><strong>Name of railway</strong>
+  <%= @station.line_name2 %></p>
+<p><strong>Station name</strong>
+  <%= @station.station_name2 %></p>
+<p><strong>How many minutes walk</strong>
+  <%= @station.walking_time2 %></p>
+<h3>Nearest station3</h3>
+<p><strong>Name of railway</strong>
+  <%= @station.line_name3 %></p>
+<p><strong>Station name</strong>
+  <%= @station.station_name3 %></p>
+<p><strong>How many minutes walk</strong>
+  <%= @station.walking_time3 %></p>
+<% end %>
+<%= link_to 'Edit', edit_house_path(@house.id), data: {confirm: "Confirm Edit!"} %>
+<%= link_to 'Back', houses_path %>
