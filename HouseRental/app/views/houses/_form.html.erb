@@ -9,7 +9,6 @@
 <% end %>
   </div>
 <div>
-  <h3> Register Property </h3>
   <%= form_with(model: @house, local: true, url: choose_new_or_edit) do |f| %>
     <%= f.label :house_name, "Property" %><br>
     <%= f.text_field :house_name %><br>
@@ -45,7 +44,13 @@
     <%= sta.text_field :station_name3 %><br>
     <%= sta.label :walking_time3, "How many minutes walk" %><br>
     <%= sta.text_field :walking_time3 %>min/mins<br>
-    <%= sta.submit%>
+    <%= sta.submit%><br>
     <% end %>
+      <% if @house.id == nil %>
+        <%= link_to 'Back', houses_path %>
+      <% else %>
+        <%= link_to 'Show', house_path(@house.id) %>
+        <%= link_to 'Back', houses_path %>
+      <% end %>
   <% end %>
 </div>
