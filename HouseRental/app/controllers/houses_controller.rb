@@ -40,6 +40,6 @@ class HousesController < ApplicationController
   end
   def house_params
     params.require(:house).permit(:house_name, :fee, :address, :built_year, :note,
-      stations_attributes: [:id, :line_name, :station_name, :walking_time, :_destroy])
+      stations_attributes: %i[id line_name station_name walking_time _destroy])
   end
 end

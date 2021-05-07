@@ -23,7 +23,7 @@
     <hr>
     <% i=1 %>
     <%= f.fields_for :stations do |sta| %>
-    <h3> Name of railway line<%= i %> </h3>
+    <h2> Name of railway line<%= i %> </h2>
     <%= sta.hidden_field :id %>
     <%= sta.label :line_name, "Name of railway line" %><br>
     <%= sta.text_field :line_name %><br>
