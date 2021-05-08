@@ -21,6 +21,10 @@
     <%= f.label :note, "Remark" %><br>
     <%= f.text_area :note %><br>
     <hr>
+
+    <h2><strong>No of Station:</strong>
+    <%= @house.stations.count%></h2>
+
     <% i=1 %>
     <%= f.fields_for :stations do |sta| %>
     <h2> Name of railway line<%= i %> </h2>

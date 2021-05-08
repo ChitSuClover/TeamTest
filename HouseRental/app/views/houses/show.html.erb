@@ -1,16 +1,19 @@
 <h1>Propery Detail</h1>
+
 <p><strong>Property:</strong>
   <%= @house.house_name%></p>
 <p><strong>Rent:</strong>
   <%= @house.fee%></p>
 <p><strong>Address:</strong>
   <%= @house.address%></p>
-<p><strong>Building age</strong>
+<p><strong>Building age:</strong>
   <%= @house.built_year%></p>
-<p><strong>Remarks</strong>
+<p><strong>Remarks:</strong>
   <%= @house.note%></p>
 <hr>
 
+<h2><strong>No of Station:</strong>
+    <%= @station.count%></h2>
 <% i=1 %>
 <% @station.each do |s| %>
 <h2>Nearest station<%= i %></h2>

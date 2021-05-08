@@ -6,15 +6,16 @@
     <th>Rent</th>
     <th>Address</th>
     <th>Building Age</th>
+    <th>No of Station</th>
     <th>Remarks</th>
-  </tr>
 <% @houses.each do |house| %>
   <tr>
-    <td><%= house.house_name%></td>
-    <td><%= house.fee%></td>
-    <td><%= house.address%></td>
-    <td><%= house.built_year%></td>
-    <td><%= house.note%></td>
+    <td><%= house.house_name %></td>
+    <td><%= house.fee %></td>
+    <td><%= house.address %></td>
+    <td><%= house.built_year %></td>
+    <td><%= house.stations.count %></td>
+    <td><%= house.note %></td>
     <td>
     <%= link_to 'Show', house_path(house.id) %>
     <%= link_to 'Edit', edit_house_path(house.id), data: {confirm: "Confirm Edit!"} %>
