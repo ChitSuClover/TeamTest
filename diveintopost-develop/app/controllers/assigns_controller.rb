@@ -15,10 +15,14 @@ class AssignsController < ApplicationController
   end
 
   def destroy
-    assign = Assign.find(params[:id])
-    destroy_message = assign_destroy(assign, assign.user)
-
-    redirect_to team_url(params[:team_id]), notice: destroy_message
+      team = find_team(params[:team_id])
+      assign = Assign.find(params[:id])
+    if current_user.id == team.owner_id || current_user.id == team.user_id
+      destroy_message = assign_destroy(assign, assign.user)
+      redirect_to team_url(params[:team_id]), notice: destroy_message
+    else
+      render :new
+    end
   end
 
   private
