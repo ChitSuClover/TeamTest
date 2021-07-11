@@ -10,6 +10,14 @@ class TeamsController < ApplicationController
     @working_team = @team
     change_keep_team(current_user, @team)
   end
+  def owner_transfer
+    user = User.find_by(params[:id])
+    @team = Team.find_by(params[:team_id])
+    @team.owner= user
+    @team.save
+    AssignMailer.owner_transfer_mail(@team.owner).deliver
+    redirect_to @team
+  end
 
   def new
     @team = Team.new

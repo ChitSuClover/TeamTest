@@ -7,6 +7,10 @@ class AssignMailer < ApplicationMailer
       mail to:user.email , subject: "Agende deleted"
     end
   end
+  def owner_transfer_mail(new_owner)
+    @new = new_owner
+    mail to:@new.email , subject: "You become owner."
+  end
   def assign_mail(email, password)
     @email = email
     @password = password
