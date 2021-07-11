@@ -1,6 +1,10 @@
 class Users::SessionsController < Devise::SessionsController
   layout 'login/application'
-
+  def destroy
+    session.delete(:user_id)
+    flash[:notice]="Logged out"
+    redirect_to new_user_session_path
+  end
   private
 
   def after_sign_in_path_for(user)
@@ -15,4 +19,5 @@ class Users::SessionsController < Devise::SessionsController
       team_url(keep_team)
     end
   end
+
 end
